@@ -59,7 +59,7 @@ ebpf-specialist-llm/
 
 ## Dataset
 
-Available on HuggingFace: [Nikhil69/ebpf-instruct-v2](https://huggingface.co/datasets/Nikhil69/ebpf-instruct-v2)
+Available on HuggingFace: [Nikhil69/ebpf-instruct-v2](https://huggingface.co/datasets/Nikhil69/ebpf-instruct)
 
 - **6,412** ShareGPT-format instruction pairs
 - Covers: aya kernel/user, cilium/ebpf Go, libbpf C, BCC Python, conceptual eBPF
