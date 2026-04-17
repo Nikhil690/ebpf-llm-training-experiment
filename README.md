@@ -18,14 +18,18 @@ Most LLMs hallucinate eBPF APIs. This project builds a model that can actually w
 
 ## Results
 
-| Model | pass@1 | aya_kernel | aya_user | cilium_go | libbpf_c | conceptual |
-|---|---|---|---|---|---|---|
-| Qwen3.5-4B baseline | 12.5% (5/40) | 0% | 0% | 0% | 0% | 83% |
-| Qwen3.5-4B fine-tuned | 22.5% (9/40) | 0% | 0% | 0% | 30% | 100% |
-| **Qwen3.5-4B fine-tuned + post-processing** | **32.5% (13/40)** | **0%** | **0%** | **0%** | **70%** | **100%** |
+| Model | Params | pass@1 | aya_kernel | aya_user | cilium_go | libbpf_c | conceptual |
+|---|---|---|---|---|---|---|---|
+| Qwen3.5-4B baseline | 4B | 12.5% (5/40) | 0% | 0% | 0% | 0% | 83% |
+| Qwen3.5-4B fine-tuned | 4B | 22.5% (9/40) | 0% | 0% | 0% | 30% | 100% |
+| **Qwen3.5-4B fine-tuned + post-processing** | **4B** | **32.5% (13/40)** | **0%** | **0%** | **0%** | **70%** | **100%** |
+| Gemma-4-31B baseline | 31B | 35.0% (14/40) | 0% | 0% | 20% | 60% | 100% |
+| Gemma-4-31B fine-tuned | 31B | 35.0% (14/40) | 0% | 0% | 30% | 50% | 100% |
 
 Fine-tuning alone improved pass@1 by **+10pp** (+80% relative).  
 With IDE-style post-processing (auto-inject missing C includes, fix unused Go imports): **+20pp** over baseline.
+
+Gemma-4-31B (31B params) scored 35% at baseline — but fine-tuning on the same v2 dataset gave **0pp improvement**. The synthetic data is optimized for a 4B model's failure modes and doesn't meaningfully shift a larger model's weights.
 
 > Post-processing applies the same fixes an IDE linter would — adding missing `#include <bpf/bpf_endian.h>` when `bpf_htons` is used, injecting missing Go sub-package imports. The model demonstrates correct API knowledge; the fixer handles last-mile syntactic omissions.
 
