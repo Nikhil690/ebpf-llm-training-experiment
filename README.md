@@ -21,10 +21,13 @@ Most LLMs hallucinate eBPF APIs. This project builds a model that can actually w
 | Model | pass@1 | aya_kernel | aya_user | cilium_go | libbpf_c | conceptual |
 |---|---|---|---|---|---|---|
 | Qwen3.5-4B baseline | 12.5% (5/40) | 0% | 0% | 0% | 0% | 83% |
-| **Qwen3.5-4B fine-tuned** | **22.5% (9/40)** | **0%** | **0%** | **0%** | **30%** | **100%** |
+| Qwen3.5-4B fine-tuned | 22.5% (9/40) | 0% | 0% | 0% | 30% | 100% |
+| **Qwen3.5-4B fine-tuned + post-processing** | **32.5% (13/40)** | **0%** | **0%** | **0%** | **70%** | **100%** |
 
-Fine-tuning improved pass@1 by **+10 percentage points** (+80% relative).  
-libbpf C went from 0% → 30% (3/10). Conceptual went from 83% → 100%.
+Fine-tuning alone improved pass@1 by **+10pp** (+80% relative).  
+With IDE-style post-processing (auto-inject missing C includes, fix unused Go imports): **+20pp** over baseline.
+
+> Post-processing applies the same fixes an IDE linter would — adding missing `#include <bpf/bpf_endian.h>` when `bpf_htons` is used, injecting missing Go sub-package imports. The model demonstrates correct API knowledge; the fixer handles last-mile syntactic omissions.
 
 See [docs/results.md](docs/results.md) for full per-problem breakdown.
 
