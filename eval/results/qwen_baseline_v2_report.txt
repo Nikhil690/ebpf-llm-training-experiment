@@ -1,0 +1,140 @@
+eBPF-HumanEval Results
+==================================================
+Model  : Qwen3.5-4B-UD-Q4_K_XL.gguf
+Tag    : qwen_baseline_v2
+
+Overall pass@1 : 5/40 (12.5%)
+
+By category:
+  aya_kernel           0/10  (0%)
+  aya_user             0/4  (0%)
+  cilium_go            0/10  (0%)
+  conceptual           5/6  (83%)
+  libbpf_c             0/10  (0%)
+
+Per-problem results:
+  [FAIL] aya_k_001       (aya_kernel) 1.0s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpxvba15m4)
+src/main.rs:11:1: error: expected `static`
+src/main.rs:4:14: err
+  [FAIL] aya_k_002       (aya_kernel) 1.4s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp00p_9b40)
+src/main.rs:27:5: error: expected `,`
+src/main.rs:4:14: error[E0
+  [FAIL] aya_k_003       (aya_kernel) 1.9s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpdymkikwx)
+src/main.rs:9:1: error: expected `static`
+src/main.rs:15:1: erro
+  [FAIL] aya_k_004       (aya_kernel) 1.3s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmptvjvshv9)
+src/main.rs:4:14: error[E0432]: unresolved imports `aya_ebpf::ma
+  [FAIL] aya_k_005       (aya_kernel) 16.8s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpzsdfxurs)
+src/main.rs:17:9348: error: this file contains an unclosed delim
+  [FAIL] aya_k_006       (aya_kernel) 0.9s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp2eq2cb85)
+src/main.rs:11:1: error: expected `static`
+src/main.rs:4:14: err
+  [FAIL] aya_k_007       (aya_kernel) 1.4s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp3rnhg118)
+src/main.rs:11:1: error: expected `static`
+src/main.rs:4:14: err
+  [FAIL] aya_k_008       (aya_kernel) 0.8s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpy9jdhocb)
+src/main.rs:11:1: error: expected `static`
+src/main.rs:4:14: err
+  [FAIL] aya_k_009       (aya_kernel) 1.2s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmphva9js8y)
+src/main.rs:14:5: error: expected `,`
+src/main.rs:4:14: error[E0
+  [FAIL] aya_k_010       (aya_kernel) 16.8s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp57p13e62)
+src/main.rs:434:20: error: this file contains an unclosed delimi
+  [FAIL] aya_u_011       (aya_user) 0.8s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmpxev23vly)
+src/main.rs:3:5: warning: unused import: `aya::maps::HashMap`
+src/
+  [FAIL] aya_u_012       (aya_user) 1.2s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmp597z7k3j)
+src/main.rs:14:1: error[E0428]: the name `tracepoint_bpf` is defin
+  [FAIL] aya_u_013       (aya_user) 1.1s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmpgwhsw02i)
+src/main.rs:3:5: warning: unused import: `aya::programs::Xdp`
+src/
+  [FAIL] aya_u_014       (aya_user) 16.8s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmp211cjn9v)
+src/main.rs:236:5: error: expected one of `::`, `;`, or `as`, foun
+  [FAIL] go_015          (cilium_go) 1.1s
+         ↳ main.go:8:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] go_016          (cilium_go) 2.2s
+         ↳ main.go:8:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] go_017          (cilium_go) 1.8s
+         ↳ # ebpf-eval
+./main.go:4:2: "context" imported and not used
+./main.go:16:9: undefined: rlimit.SetRLimit
+./main.go:16:27: 
+  [FAIL] go_018          (cilium_go) 1.7s
+         ↳ main.go:8:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] go_019          (cilium_go) 2.4s
+         ↳ # ebpf-eval
+./main.go:13:19: undefined: rlimit.SetRLimit
+./main.go:13:36: undefined: rlimit.RLIMIT_NOFILE
+./main.go:19:1
+  [FAIL] go_020          (cilium_go) 17.2s
+         ↳ main.go:8:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] go_021          (cilium_go) 17.2s
+         ↳ main.go:13:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/
+  [FAIL] go_022          (cilium_go) 2.8s
+         ↳ main.go:13:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/
+  [FAIL] go_023          (cilium_go) 1.9s
+         ↳ main.go:8:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] go_024          (cilium_go) 2.9s
+         ↳ main.go:9:2: no required module provides package github.com/cilium/ebpf/bpf; to add it:
+	go get github.com/cilium/ebpf/b
+  [FAIL] c_025           (libbpf_c) 1.0s
+         ↳ /tmp/tmppytsa3ke/prog.bpf.c:9:5: error: type name requires a specifier or qualifier
+    9 |     __max_entries(1);
+      
+  [FAIL] c_026           (libbpf_c) 0.6s
+         ↳ /tmp/tmpvcarx25e/prog.bpf.c:6:15: error: parameter 'sys_enter' was not declared, defaults to 'int'; ISO C99 and later do
+  [FAIL] c_027           (libbpf_c) 1.1s
+         ↳ /tmp/tmpzq59hvu0/prog.bpf.c:9:5: error: type name requires a specifier or qualifier
+    9 |     __max_entries, 1024;
+   
+  [FAIL] c_028           (libbpf_c) 0.8s
+         ↳ /tmp/tmp5lrkfho7/prog.bpf.c:15:15: error: parameter 'tracepoint_sched_process_exec' was not declared, defaults to 'int';
+  [FAIL] c_029           (libbpf_c) 2.4s
+         ↳ /tmp/tmpxk5bjjyr/prog.bpf.c:9:27: error: no member named 'data_end' in 'struct xdp_frame'
+    9 |     u32 data_end = fra
+  [FAIL] c_030           (libbpf_c) 1.6s
+         ↳ /tmp/tmpo4_sgwk_/prog.bpf.c:9:5: error: type name requires a specifier or qualifier
+    9 |     __max_entries, 1024;
+   
+  [FAIL] c_031           (libbpf_c) 16.9s
+         ↳ /tmp/tmps46dbsut/prog.bpf.c:335:11: error: expected ';' at end of declaration
+  335 |     u8 *ip
+      |           ^
+   
+  [FAIL] c_032           (libbpf_c) 17.0s
+         ↳ /tmp/tmpncggyjux/prog.bpf.c:15:30: error: no member named 'di' in 'struct pt_regs'
+   15 |     sk = (struct sock *)ctx->
+  [FAIL] c_033           (libbpf_c) 1.6s
+         ↳ /tmp/tmpf_gxg2xj/prog.bpf.c:27:59: error: too many arguments to function call, expected 2, have 3
+   27 |     ret = bpf_
+  [FAIL] c_034           (libbpf_c) 0.8s
+         ↳ /tmp/tmp_kxjhxoh/prog.bpf.c:8:12: error: no member named 'type' in 'struct sk_filter'
+    8 |     if (f->type == BPF_F_I
+  [PASS] concept_035     (conceptual) 1.5s
+  [PASS] concept_036     (conceptual) 2.5s
+  [PASS] concept_037     (conceptual) 2.9s
+  [PASS] concept_038     (conceptual) 1.4s
+  [FAIL] concept_039     (conceptual) 3.2s
+         ↳ Found 3/8 keywords. Missing: ['tail_call', 'bpf_tail_call', 'prog_array', 'jmp_table', 'MAX_TAIL_CALL']
+  [PASS] concept_040     (conceptual) 2.7s

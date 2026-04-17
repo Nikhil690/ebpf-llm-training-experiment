@@ -1,0 +1,129 @@
+eBPF-HumanEval Results
+==================================================
+Model  : Qwen3.5-4B.F16.gguf
+Tag    : qwen_ft_v2_f16
+
+Overall pass@1 : 9/40 (22.5%)
+
+By category:
+  aya_kernel           0/10  (0%)
+  aya_user             0/4  (0%)
+  cilium_go            0/10  (0%)
+  conceptual           6/6  (100%)
+  libbpf_c             3/10  (30%)
+
+Per-problem results:
+  [FAIL] aya_k_001       (aya_kernel) 1.0s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpsadrpncx)
+src/main.rs:6:3: error: cannot find attribute `map` in this scop
+  [FAIL] aya_k_002       (aya_kernel) 2.0s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp2y9bi1l_)
+src/main.rs:10:3: error: cannot find attribute `map` in this sco
+  [FAIL] aya_k_003       (aya_kernel) 1.3s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmppv9ms3ph)
+src/main.rs:6:10: error: invalid argument
+src/main.rs:6:1: error
+  [FAIL] aya_k_004       (aya_kernel) 0.9s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpixvjwtb2)
+src/main.rs:5:5: error[E0432]: unresolved import `aya_ebpf::prog
+  [FAIL] aya_k_005       (aya_kernel) 1.4s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpuaxi325t)
+src/main.rs:6:14: error: expected `name` and `category` argument
+  [FAIL] aya_k_006       (aya_kernel) 1.1s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpxew6jepx)
+src/main.rs:4:5: error[E0432]: unresolved import `aya_ebpf::macr
+  [FAIL] aya_k_007       (aya_kernel) 0.9s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmp9f_4ltco)
+src/main.rs:6:7: error: invalid argument
+error: `#[panic_handler
+  [FAIL] aya_k_008       (aya_kernel) 1.1s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpcflno1zm)
+src/main.rs:10:3: error: cannot find attribute `map` in this sco
+  [FAIL] aya_k_009       (aya_kernel) 19.4s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpkv57ejtk)
+src/main.rs:750:11: error: this file contains an unclosed delimi
+  [FAIL] aya_k_010       (aya_kernel) 0.9s
+         ↳     Checking ebpf-eval-kernel v0.1.0 (/tmp/tmpoohbtvlb)
+src/main.rs:5:5: error[E0432]: unresolved import `aya_ebpf::prog
+  [FAIL] aya_u_011       (aya_user) 1.1s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmpdmd3ii_d)
+src/main.rs:4:5: error[E0432]: unresolved import `aya::util::Onlin
+  [FAIL] aya_u_012       (aya_user) 1.1s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmphw6rrdgt)
+src/main.rs:1:5: warning: unused import: `aya::Ebpf`
+src/main.rs:6
+  [FAIL] aya_u_013       (aya_user) 1.5s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmpe123rqia)
+src/main.rs:4:5: error[E0432]: unresolved import `aya::util::Onlin
+  [FAIL] aya_u_014       (aya_user) 19.4s
+         ↳     Checking ebpf-eval-user v0.1.0 (/tmp/tmpwanveijr)
+src/main.rs:365:5: error: expected one of `::`, `;`, or `as`, foun
+  [FAIL] go_015          (cilium_go) 1.8s
+         ↳ # ebpf-eval
+./main.go:12:12: undefined: rlimit
+./main.go:17:2: declared and not used: spec
+./main.go:29:20: undefined: e
+  [FAIL] go_016          (cilium_go) 1.9s
+         ↳ # ebpf-eval
+./main.go:36:43: undefined: ebpf.Any
+
+  [FAIL] go_017          (cilium_go) 1.5s
+         ↳ # ebpf-eval
+./main.go:4:2: "context" imported and not used
+./main.go:31:12: assignment mismatch: 1 variable but link.Att
+  [FAIL] go_018          (cilium_go) 1.7s
+         ↳ # ebpf-eval
+./main.go:34:24: syntax error: unexpected comma at end of statement
+
+  [FAIL] go_019          (cilium_go) 1.6s
+         ↳ # ebpf-eval
+./main.go:6:2: "unsafe" imported and not used
+./main.go:30:39: not enough arguments in call to link.Kprobe
+	
+  [FAIL] go_020          (cilium_go) 2.0s
+         ↳ # ebpf-eval
+./main.go:8:2: "github.com/cilium/ebpf/link" imported and not used
+
+  [FAIL] go_021          (cilium_go) 4.1s
+         ↳ # ebpf-eval
+./main.go:7:2: "os" imported and not used
+./main.go:8:2: "runtime" imported and not used
+./main.go:70:14: re
+  [FAIL] go_022          (cilium_go) 2.3s
+         ↳ # ebpf-eval
+./main.go:47:1: syntax error: non-declaration statement outside function body
+./main.go:55:45: string not te
+  [FAIL] go_023          (cilium_go) 3.3s
+         ↳ # ebpf-eval
+./main.go:49:2: syntax error: unexpected keyword if, expected expression
+./main.go:59:2: syntax error: unexp
+  [FAIL] go_024          (cilium_go) 1.8s
+         ↳ # ebpf-eval
+./main.go:32:19: assignment mismatch: 2 variables but outerMap.Lookup returns 1 value
+./main.go:32:35: not e
+  [PASS] c_025           (libbpf_c) 0.9s
+  [PASS] c_026           (libbpf_c) 0.6s
+  [FAIL] c_027           (libbpf_c) 1.0s
+         ↳ /tmp/tmpl85ho8ek/prog.bpf.c:12:32: error: expected identifier
+   12 | int BPF_KPROBE(do_sys_openat2, const char __user *
+  [PASS] c_028           (libbpf_c) 1.1s
+  [FAIL] c_029           (libbpf_c) 1.5s
+         ↳ /tmp/tmphw08b1g9/prog.bpf.c:13:25: error: call to undeclared function 'bpf_htons'; ISO C99 and later do not support impl
+  [FAIL] c_030           (libbpf_c) 1.8s
+         ↳ /tmp/tmp8q905mh7/prog.bpf.c:19:16: error: use of undeclared identifier 'TC_ACT_SHOT'
+   19 |         return TC_ACT_SHOT;
+  [FAIL] c_031           (libbpf_c) 1.8s
+         ↳ /tmp/tmptmzme3aa/prog.bpf.c:24:25: error: call to undeclared function 'bpf_htons'; ISO C99 and later do not support impl
+  [FAIL] c_032           (libbpf_c) 1.0s
+         ↳ /tmp/tmprrs02mqk/prog.bpf.c:12:27: warning: declaration of 'struct bpf_sk_stream' will not be visible outside of this fu
+  [FAIL] c_033           (libbpf_c) 2.0s
+         ↳ /tmp/tmpva2ifn2z/prog.bpf.c:20:25: error: call to undeclared function 'bpf_htons'; ISO C99 and later do not support impl
+  [FAIL] c_034           (libbpf_c) 0.7s
+         ↳ /tmp/tmpem43aolg/prog.bpf.c:8:24: error: no member named 'dport' in 'struct bpf_sock_addr'
+    8 |     __u16 dport = ctx
+  [PASS] concept_035     (conceptual) 5.0s
+  [PASS] concept_036     (conceptual) 5.4s
+  [PASS] concept_037     (conceptual) 4.1s
+  [PASS] concept_038     (conceptual) 4.7s
+  [PASS] concept_039     (conceptual) 5.5s
+  [PASS] concept_040     (conceptual) 7.2s

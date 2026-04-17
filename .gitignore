@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.python-version
+uv.lock
+*.egg-info/
+dist/
+
+# Rust build artifacts
+target/
+
+# Dataset files (on HuggingFace)
+dataset_raw/
+*.jsonl
+!eval/problems.jsonl
+
+# Large model files
+*.gguf
+*.bin
+*.safetensors
+
+# vmlinux.h (generate from your kernel)
+eval/templates/libbpf_c/vmlinux.h
+
+# OS
+.DS_Store
