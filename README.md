@@ -129,6 +129,8 @@ bpftool btf dump file /sys/kernel/btf/vmlinux format c > eval/templates/libbpf_c
 
 Fine-tuning was done with [Unsloth Studio](https://github.com/unslothai/unsloth).
 
+Fine-tuned Model Repo: [Qwen3.5-4B-ebpf-it](https://huggingface.co/Nikhil69/Qwen3.5-4B-ebpf-it)
+
 **LoRA config (Qwen3.5-4B, v2 dataset):**
 - Epochs: 3, Context: 2048
 - Rank: 32, Alpha: 32, Dropout: 0
@@ -137,4 +139,4 @@ Fine-tuning was done with [Unsloth Studio](https://github.com/unslothai/unsloth)
 - Learning rate: 2e-4, Warmup steps: 100
 - Batch size: 4, Gradient accumulation: 4 (effective batch: 16)
 
-See [docs/blog_post.md](docs/walkthrough.md) for the full write-up.
+See [docs/walkthrough.md](docs/walkthrough.md) for the full write-up.
