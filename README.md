@@ -137,4 +137,4 @@ Fine-tuning was done with [Unsloth Studio](https://github.com/unslothai/unsloth)
 - Learning rate: 2e-4, Warmup steps: 100
 - Batch size: 4, Gradient accumulation: 4 (effective batch: 16)
 
-See [docs/blog_post.md](docs/blog_post.md) for the full write-up.
+See [docs/blog_post.md](docs/walkthrough.md) for the full write-up.
